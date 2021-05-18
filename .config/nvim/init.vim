@@ -442,8 +442,8 @@ autocmd FileType defx call s:defx_my_settings()
     nnoremap <silent><buffer><expr> <C-v>
     \ defx#do_action('open', 'vsplit')
     " 【t】 新規タブでファイルを開く
-    " nnoremap <silent><buffer><expr> t
-    " \ defx#do_action('open', 'tabopen')
+    nnoremap <silent><buffer><expr> t
+    \ defx#do_action('open', 'tabnew')
     " 【c】 ファイルをコピーする
     nnoremap <silent><buffer><expr> c
     \ defx#do_action('copy')
