@@ -42,19 +42,17 @@ style = 'green'
 
 [git_status]
 style = 'white'
-conflicted = '⚔️ '
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-# ahead = '🏎💨 ×${count}'
-# behind = '🐢 ×${count}'
-# diverged = '🔱 🏎️💨 ×${ahead_count} 🐢 ×${behind_count}'
-untracked = '🔰 ×${count}'
+format = "$all_status$ahead_behind"
+conflicted = '⚔️  '
+ahead = '⏫️ ×${count} '
+behind = '⏬️ ×${count} '
+diverged = '😵 ⏫️ ×${ahead_count} ⏬️ ×${behind_count} '
+untracked = '🔰 ×${count} '
 stashed = '📦 '
-modified = '📝 ×${count}'
-staged = '✅ ×${count}'
-renamed = '🖌️ ×${count}'
-deleted = '🗑️ ×${count}'
+modified = '📝 ×${count} '
+staged = '✅ ×${count} '
+renamed = '🖌️ ×${count} '
+deleted = '🗑️ ×${count} '
 
 [cmd_duration]
 disabled = true
