@@ -1,0 +1,64 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$os\
+$container\
+$shell\
+$character"""
+
+add_newline = true
+
+[character]
+success_symbol = '[❯](bold #cccccc)[❯](bold cyan)[❯](bold #888888)'
+error_symbol = '[❯](bold gray)[❯](bold red)[❯](bold #888888)'
+
+[directory]
+style = '#e6e600'
+truncation_length = 20
+truncate_to_repo = false
+truncation_symbol = '…/'
+
+[git_branch]
+style = 'green'
+
+[git_status]
+style = 'white'
+conflicted = '⚔️ '
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+# ahead = '🏎💨 ×${count}'
+# behind = '🐢 ×${count}'
+# diverged = '🔱 🏎️💨 ×${ahead_count} 🐢 ×${behind_count}'
+untracked = '🔰 ×${count}'
+stashed = '📦 '
+modified = '📝 ×${count}'
+staged = '✅ ×${count}'
+renamed = '🖌️ ×${count}'
+deleted = '🗑️ ×${count}'
+
+[cmd_duration]
+disabled = true
+
+[package]
+disabled = true
+

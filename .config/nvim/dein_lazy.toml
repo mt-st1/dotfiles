@@ -1,0 +1,10 @@
+# [[plugins]]
+# repo = 'Shougo/neomru.vim'
+# on_cmd = ['Denite']
+# on_source = ['denite.nvim']
+
+# [[plugins]]
+# repo = 'Shougo/neoyank.vim'
+# on_cmd = ['Denite']
+# on_source = ['denite.nvim']
+
