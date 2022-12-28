@@ -1,0 +1,65 @@
+[include]
+  path = ~/.gitconfig.local
+[core]
+  editor = vim
+  precomposeunicode = true
+  quotepath = false
+  pager = delta
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[interactive]
+  diffFilter = delta --color-only
+[push]
+  default = simple
+[url "git@github.com:"]
+  pushinsteadof = https://github.com/
+[commit]
+  template = ~/.commit_template
+[delta]
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = Monokai Extended
+  navigate = true
+  line-numbers = true
+  side-by-side = true
+[alias]
+  alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+  i = init
+  r = remote -v
+  a = add
+  au = add -u
+  aa = add -A
+  cm = commit
+  cmm = commit -m
+  can = commit --amend --no-edit
+  pom = push origin main
+  pod = push origin develop
+  s = status
+  sh = show
+  d = diff
+  dc = diff --cached
+  dw = diff -w
+  dn = diff --name-only
+  dww = diff --word-diff
+  d1 = diff HEAD~
+  d2 = diff HEAD~2
+  d3 = diff HEAD~3
+  b = branch
+  bv = branch -vv
+  co = checkout
+  cp = cherry-pick
+  sp = stash pop
+  ss = stash save
+  sl = stash list
+  f = fetch
+  l = log --oneline --graph
+  ll = log -p --stat --abbrev-commit --decorate --topo-order
+  tree = log --graph --date=iso --pretty='[%ad]%C(auto) %h%d %C(white bold)%an%Creset: %s'
+  list = log --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short
+  loglr = log --left-right -p
+  conflictlr = log --merge --left-right -p
+  unstage = reset HEAD
+
