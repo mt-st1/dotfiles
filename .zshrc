@@ -52,6 +52,7 @@ export VISUAL=nvim
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
 
 ### PATH ###
+export PATH="$PATH:$HOME/scripts/mybin"
 export PATH="$PATH:/opt/homebrew/bin" # brew
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts" # idea
 export PATH="$JAVA_HOME/bin:$PATH" # Java
@@ -162,8 +163,8 @@ bindkey '^r' fzf-select-history
 function fzf-cdr () {  # cdrによるディレクトリ移動の履歴から検索しcd
   local selected_dir="$(cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | fzf --query "$LBUFFER")"
   if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    CURSOR=$#BUFFER
+    eval "cd ${selected_dir}"
+    zle clear-screen
   fi
   zle reset-prompt
 }
@@ -192,6 +193,7 @@ function fzf-ghq() {  # `ghq list`でcloneしたリポジトリ検索しcd
   local dir="${root}/${repo}"
   if [[ -n "$repo" ]]; then
     cd "${dir}"
+    zle clear-screen
   fi
   zle reset-prompt
 }
