@@ -22,6 +22,8 @@
 	<true/>
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
+	<key>HideScrollbar</key>
+	<true/>
 	<key>HideTabNumber</key>
 	<false/>
 	<key>Hotkey</key>
