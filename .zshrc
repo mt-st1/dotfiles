@@ -171,7 +171,7 @@ function fzf-cdr () {  # cdrによるディレクトリ移動の履歴から検�
 zle -N fzf-cdr
 bindkey '^j' fzf-cdr
 
-function fzf_any_search() {
+function fzf-any-search() {
   local fdpath='fd . ~ --full-path --type d --exclude debug --exclude Library | sed -e "s/^/cd /"'
   local history='history -n 1 | sort | uniq | grep -v "cd" | tail -r'
   local result=$({ eval "$fdpath" ; eval "$history" ; } | fzf --query "$LBUFFER")
@@ -184,8 +184,8 @@ function fzf_any_search() {
     zle clear-screen
   fi
 }
-zle -N fzf_any_search
-bindkey '^\' fzf_any_search
+zle -N fzf-any-search
+bindkey '^\' fzf-any-search
 
 function fzf-ghq() {  # `ghq list`でcloneしたリポジトリ検索しcd
   local root="$(ghq root)"
