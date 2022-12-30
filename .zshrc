@@ -136,6 +136,12 @@ if [[ -s "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
   source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
+### prezto completion [[https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh]] ###
+# cd時のtab補完や色をいい感じに設定
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh-prezto-completion.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh-prezto-completion.zsh"
+fi
+
 ### asdf ###
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 

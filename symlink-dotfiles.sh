@@ -10,6 +10,7 @@ link-dotfiles() {
     .commit_template
     .tmux.conf
     .zshrc
+    .zsh-prezto-completion.zsh
     .config/starship.toml
     .config/git/ignore
     .config/nvim/init.vim
