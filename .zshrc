@@ -80,6 +80,45 @@ if [[ $(command -v exa) ]]; then
   alias lta=eta
 fi
 
+## ref. [[https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh]]
+# Disable correction.
+alias ack='nocorrect ack'
+alias cd='nocorrect cd'
+alias cp='nocorrect cp'
+alias ebuild='nocorrect ebuild'
+alias gcc='nocorrect gcc'
+alias gist='nocorrect gist'
+alias grep='nocorrect grep'
+alias heroku='nocorrect heroku'
+alias ln='nocorrect ln'
+alias man='nocorrect man'
+alias mkdir='nocorrect mkdir'
+alias mv='nocorrect mv'
+alias mysql='nocorrect mysql'
+alias rm='nocorrect rm'
+
+# Disable globbing.
+alias bower='noglob bower'
+alias fc='noglob fc'
+alias find='noglob find'
+alias ftp='noglob ftp'
+alias history='noglob history'
+alias locate='noglob locate'
+alias rake='noglob rake'
+alias rsync='noglob rsync'
+alias scp='noglob scp'
+alias sftp='noglob sftp'
+
+# Define general aliases.
+alias mkdir="${aliases[mkdir]:-mkdir} -p"
+alias type='type -a'
+
+# Safe ops. Ask the user before doing anything destructive.
+alias cp="${aliases[cp]:-cp} -i"
+alias ln="${aliases[ln]:-ln} -i"
+alias mv="${aliases[mv]:-mv} -i"
+alias rm="${aliases[rm]:-rm} -i"
+
 ### Key binding ###
 # bindkey -e # emacs
 bindkey -v # vim
@@ -136,7 +175,8 @@ if [[ -s "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
   source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
-### prezto completion [[https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh]] ###
+### prezto completion ###
+## ref. [[https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh]]
 # cd時のtab補完や色をいい感じに設定
 if [[ -s "${ZDOTDIR:-$HOME}/.zsh-prezto-completion.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh-prezto-completion.zsh"
