@@ -27,6 +27,9 @@ set encoding=utf-8
 set termguicolors
 set listchars=tab:\▸\-,extends:❯,precedes:❮ " 不可視文字の表示記号指定
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set winbar=%f
+set laststatus=3      " global status line
+" set cmdheight=0       " hide command line
 
 "===========================
 " カーソル移動関連の設定

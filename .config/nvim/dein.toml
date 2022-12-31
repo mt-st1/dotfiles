@@ -93,7 +93,7 @@ EOF
 repo = 'akinsho/bufferline.nvim'
 hook_add = '''
 lua << EOF
-require("bufferline").setup{}
+require("bufferline").setup {}
 EOF
 '''
 
@@ -110,6 +110,7 @@ require('lualine').setup {
     disabled_filetypes = {},
     always_divide_middle = true,
     colored = true,
+    globalstatus=true,
   },
   sections = {
     lualine_a = {'mode'},
@@ -223,7 +224,7 @@ hook_add = '''
     call denite#custom#var('file_rec', 'command',
           \ ['rg', '--files', '--glob', '!.git'])
     " Ripgrep command on grep source
-    call denite#custom#var('grep', 'command', ['rg', '--smart-case'])
+    call denite#custom#var('grep', 'command', ['rg', '--smart-case', '--hidden'])
     call denite#custom#var('grep', 'default_opts',
           \ ['--vimgrep', '--no-heading'])
     call denite#custom#var('grep', 'recursive_opts', [])
