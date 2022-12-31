@@ -13,6 +13,7 @@ link-dotfiles() {
     .zsh-prezto-completion.zsh
     .config/starship.toml
     .config/git/ignore
+    .config/nvim/plugin
     .config/nvim/init.vim
     .config/nvim/dein.toml
     .config/nvim/dein_lazy.toml
