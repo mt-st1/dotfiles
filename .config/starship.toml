@@ -30,6 +30,7 @@ add_newline = true
 [character]
 success_symbol = '[❯](bold #cccccc)[❯](bold cyan)[❯](bold #888888)'
 error_symbol = '[❯](bold gray)[❯](bold red)[❯](bold #888888)'
+vicmd_symbol = '[❯](bold #cccccc)[❯](bold green)[❯](bold #888888)'
 
 [directory]
 style = '#e6e600'

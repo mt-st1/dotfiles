@@ -135,33 +135,6 @@ bindkey -M viins '^U'  backward-kill-line
 bindkey -M viins '^W'  backward-kill-word
 bindkey -M viins '^Y'  yank
 
-# モードを表示
-# if [[ -s "${ZDOTDIR:-$HOME}/.zsh-vimode-visual.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zsh-vimode-visual.zsh"
-# fi
-#
-# function zle-line-init zle-line-finish zle-keymap-select {
-#   VIM_NORMAL="%K%F%k%f%K{166}%F{237} % N %k%f%K%F{166}%k%f"
-#   VIM_INSERT="%K%F%k%f%K{032}%F{237} % I %k%f%K%F{032}%k%f"
-#   VIM_VISUAL="%K%F%k%f%K{029}%F{237} % V %k%f%K%F{029}%k%f"
-#   case $KEYMAP in
-#     main|viins)
-#       RPS1="${VIM_INSERT}"
-#       ;;
-#     vicmd)
-#       RPS1="${VIM_NORMAL}"
-#       ;;
-#     vivis|vivli)
-#       RPS1="${VIM_VISUAL}"
-#       ;;
-#   esac
-#   RPS2=$RPS1
-#   zle reset-prompt
-# }
-# zle -N zle-line-init
-# zle -N zle-line-finish
-# zle -N zle-keymap-select
-
 # Ctrl-Wでパスの文字列などをスラッシュ単位で削除する
 autoload -U select-word-style
 select-word-style bash
