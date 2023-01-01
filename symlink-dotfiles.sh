@@ -6,8 +6,9 @@ cd "$DIR"
 
 link-dotfiles() {
   local files=(
-    .gitconfig
+    .Brewfile
     .commit_template
+    .gitconfig
     .tmux.conf
     .zshrc
     .zsh-prezto-completion.zsh
