@@ -234,6 +234,20 @@ function fzf-git-branch() {
 zle -N fzf-git-branch
 bindkey "^g^b" fzf-git-branch
 
+function fzf-ps() {  # プロセスIDを取得 (tabで複数選択可)
+  local current_buffer=$BUFFER
+  local pid
+  pid=$(ps aux | sed 1d | fzf -m | awk '{print $2}' | sed -e "s/[\r\n]\+/ /g" | xargs echo)
+
+  if [ "x$pid" != "x" ]; then
+    BUFFER="${current_buffer}${pid}"
+    CURSOR=$#BUFFER
+  fi
+  zle reset-prompt
+}
+zle -N fzf-ps
+bindkey "^t^p" fzf-ps
+
 ### Starship ###
 eval "$(starship init zsh)"
 
