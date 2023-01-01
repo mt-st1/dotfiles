@@ -223,7 +223,7 @@ function fzf-git-branch() {
   local selected_branch=$(
     git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads \
       | perl -pe 's{^refs/heads/}{}' \
-      | fzf --query "$LBUFFER" --preview "git --no-pager log -20 --date=iso-local --color=always {}"
+      | fzf --query "$LBUFFER" --preview "git --no-pager l -20 --color=always {}"
   )
   if [[ -n "$selected_branch" ]]; then
     BUFFER="git checkout ${selected_branch}"
