@@ -169,7 +169,7 @@ fi
 
 ### fzf ###
 export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --inline-info"
-export FZF_DEFAULT_COMMAND='rg --files -u --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden --follow --glob "!.git/*"'
 
 function fzf-select-history() {  # コマンド履歴を検索
     BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER")
