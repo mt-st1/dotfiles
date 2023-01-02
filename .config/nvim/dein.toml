@@ -66,19 +66,23 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
+repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'Shougo/neoyank.vim'
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-depends = ['neomru.vim', 'neoyank.vim', 'vim-devicons']
+repo = 'nvim-telescope/telescope.nvim'
+depends = ['plenary.nvim']
 hook_add = '''
-  source ~/.config/nvim/plugins/denite.rc.vim
+  source ~/.config/nvim/plugins/telescope.rc.vim
+'''
+
+[[plugins]]
+repo = 'kkharji/sqlite.lua'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+depends = ['sqlite.lua']
+hook_add = '''
+  source ~/.config/nvim/plugins/telescope-frequency.rc.vim
 '''
 
 [[plugins]]
