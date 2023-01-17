@@ -42,6 +42,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'windwp/nvim-autopairs'
+hook_add = '''
+  source ~/.config/nvim/plugins/nvim-autopairs.rc.vim
+'''
+
+[[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
 hook_add = '''
   source ~/.config/nvim/plugins/nvim-web-devicons.rc.vim
