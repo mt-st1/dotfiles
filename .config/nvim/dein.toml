@@ -92,15 +92,8 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-depends = ['defx-icons', 'defx-git']
+repo = 'nvim-tree/nvim-tree.lua'
 hook_add = '''
-  source ~/.config/nvim/plugins/defx.rc.vim
+  source ~/.config/nvim/plugins/nvim-tree.rc.vim
 '''
 
