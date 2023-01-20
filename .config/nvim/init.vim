@@ -70,8 +70,8 @@ set softtabstop=2   " 連続した空白に対してタブキーやバックス�
 set autoindent      " 改行時に前の行のインデントを継続する
 set smartindent     " 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 
-"==============================
-"動作環境との統合関連の設定
+"=============================
+" 動作環境との統合関連の設定
 "=============================
 set clipboard+=unnamedplus " OSのクリップボードをレジスタ指定無しで Yank, Put 出来るようにする
 set mouse+=a               " マウスの入力を受け付ける
@@ -90,7 +90,7 @@ set visualbell t_vb=  "ビープ音すべてを無効にする
 set noerrorbells      "エラーメッセージの表示時にビープを鳴らさない
 
 " ============================
-" 基本的なキーマッピング変更
+" 基本的なキーバインド設定
 " ============================
 noremap j gj
 noremap k gk
@@ -125,28 +125,6 @@ cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-d> <Del>
 
-" ================================
-" <Space>* によるキーバインド設定
-" ================================
-" <Space>cd で編集ファイルのカレントディレクトリへと移動
-command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
-function! s:ChangeCurrentDir(directory, bang)
-    if a:directory == ''
-        lcd %:p:h
-    else
-        execute 'lcd' . a:directory
-    endif
-
-    if a:bang == ''
-        pwd
-    endif
-endfunction
-nnoremap <silent> <Space>cd :<C-u>CD<CR>
-" PWD
-nnoremap <silent> <Space>; :<C-u>pwd<CR>
-" ファイル再読込み
-nnoremap <Space>re :<C-u>e!<CR>
-
 
 if exists('g:vscode')
   " -- VSCode extension -- 
@@ -179,8 +157,8 @@ else
   "============================
   " color scheme
   "============================
-  " colorscheme tokyonight-night
   colorscheme onedark
+  " colorscheme tokyonight-night
 
   "==================================
   " スプリットやバッファ, タブの設定
@@ -219,6 +197,57 @@ else
   call submode#map('bufmove', 'n', '', '<', '<C-w><')
   call submode#map('bufmove', 'n', '', '+', '<C-w>+')
   call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+  " ================================
+  " <Space>* によるキーバインド設定
+  " ================================
+  " <Space>cd で編集ファイルのカレントディレクトリへと移動
+  command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
+  function! s:ChangeCurrentDir(directory, bang)
+      if a:directory == ''
+          lcd %:p:h
+      else
+          execute 'lcd' . a:directory
+      endif
+
+      if a:bang == ''
+          pwd
+      endif
+  endfunction
+  nnoremap <silent> <Space>cd :<C-u>CD<CR>
+  " PWD
+  nnoremap <silent> <Space>; :<C-u>pwd<CR>
+
+  " ==================================
+  " <Option>* のキーバインド設定
+  " ==================================
+  " Option+o でウィンドウ間を時計回りに移動
+  noremap ø <C-w>w
+  tnoremap ø <C-\><C-n><C-w>w
+  " Option+O でウィンドウ間を反時計回りに移動
+  noremap Ø <C-w>W
+  tnoremap Ø <C-\><C-n><C-w>W
+  " Option+z で他のウィンドウを閉じて最大化する
+  noremap Ω <C-w>o
+  tnoremap Ω <C-\><C-n><C-w>o
+  " Option+q でバッファを削除
+  noremap œ :<C-u>bd!<CR>
+  tnoremap œ <C-\><C-n>:<C-u>bd!<CR>
+  " Option+r でファイル再読込み
+  noremap ® :<C-u>e!<CR>
+  " Option+\ でTerminal-Normalモードに
+  tnoremap « <C-\><C-n>
+
+  "==================================
+  " Terminalモードの設定
+  "==================================
+  nnoremap <silent> ,t :<C-u>split<CR>:resize 20<CR>:terminal<CR>
+  nnoremap <silent> ,vt :<C-u>vsplit<CR>:terminal<CR>
+  " ターミナルを開いたらに常にinsertモードに入る
+  autocmd TermOpen * startinsert
+  " ウィンドウを移動した際、ターミナルの場合は
+  " 自動的にTerminal-Jobモードに切り替わるように
+  autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
 endif
 
 filetype plugin indent on

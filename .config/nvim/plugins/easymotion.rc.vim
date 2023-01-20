@@ -12,11 +12,4 @@ map <C-s> <Plug>(easymotion-overwin-f2)
 map <Space>j <Plug>(easymotion-j)
 map <Space>k <Plug>(easymotion-k)
 nmap <Space>l <Plug>(easymotion-overwin-line)
-" SearchMotion
-nmap <C-w> <Plug>(easymotion-sn)
-xmap <C-w> <Plug>(easymotion-sn)
-" RepeatMotion
-map <Space>. <Plug>(easymotion-repeat)
-map <Space>n <Plug>(easymotion-next)
-map <Space>p <Plug>(easymotion-prev)
 
