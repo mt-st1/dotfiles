@@ -63,9 +63,9 @@ alias oldvim="\vim"
 
 if [[ $(command -v exa) ]]; then
   alias e='exa'
-  alias l=e
   alias ls=e
   alias ea='exa -a'
+  alias l=ea
   alias el='exa -l --icons --git'
   alias ll=el
   alias ee='exa -ahl --icons --git'
