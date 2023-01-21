@@ -13,6 +13,7 @@ local config = {
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,
+    signcolumn = "no",
     mappings = {
       custom_only = false,
       list = {

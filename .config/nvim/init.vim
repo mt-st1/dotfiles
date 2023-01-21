@@ -27,10 +27,10 @@ set encoding=utf-8
 set termguicolors
 set listchars=tab:\▸\-,extends:❯,precedes:❮ " 不可視文字の表示記号指定
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-set winbar=%f
 set laststatus=3      " global status line
 set signcolumn=yes    " always display signcolumn for gitsigns.nvim
 " set cmdheight=0       " hide command line
+" set winbar=%f
 
 "===========================
 " カーソル移動関連の設定
@@ -215,7 +215,6 @@ else
       endif
   endfunction
   nnoremap <silent> <Space>cd :<C-u>CD<CR>
-  " PWD
   nnoremap <silent> <Space>; :<C-u>pwd<CR>
 
   " ==================================
@@ -235,8 +234,8 @@ else
   tnoremap œ <C-\><C-n>:<C-u>bd!<CR>
   " Option+r でファイル再読込み
   noremap ® :<C-u>e!<CR>
-  " Option+\ でTerminal-Normalモードに
-  tnoremap « <C-\><C-n>
+  " Option+[ でTerminal-Normalモードに
+  tnoremap “ <C-\><C-n>
 
   "==================================
   " Terminalモードの設定
@@ -246,8 +245,18 @@ else
   " ターミナルを開いたらに常にinsertモードに入る
   autocmd TermOpen * startinsert
   " ウィンドウを移動した際、ターミナルの場合は
-  " 自動的にTerminal-Jobモードに切り替わるように
+  " 自動的にTerminal-Job(インサート)モードに切り替わるように
   autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+  " ターミナルでは行番号やwinbarを非表示に
+  autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+
+  " ターミナルやnvim-tree等ではない通常のバッファでは winbar を設定する 
+  " terminal起動のBufWinEnterイベント時点では buftype が 'terminal' に設定されていないため
+  " timer_start で遅延させ buftype が反映されてから、`set_winbar()` を呼び出している
+  function! s:set_winbar()
+    if &buftype == "" | setlocal winbar=%f | endif
+  endfunction
+  autocmd VimEnter,BufWinEnter * call timer_start(0, { -> s:set_winbar() })
 endif
 
 filetype plugin indent on
