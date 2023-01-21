@@ -48,6 +48,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'kylechui/nvim-surround'
+hook_add = '''
+  source ~/.config/nvim/plugins/nvim-surround.rc.vim
+'''
+
+[[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
 hook_add = '''
   source ~/.config/nvim/plugins/nvim-web-devicons.rc.vim
