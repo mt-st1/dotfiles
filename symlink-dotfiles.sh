@@ -9,6 +9,7 @@ link-dotfiles() {
     .Brewfile
     .commit_template
     .gitconfig
+    .ideavimrc
     .tmux.conf
     .zshrc
     .zsh-prezto-completion.zsh

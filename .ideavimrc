@@ -1,0 +1,72 @@
+set surround
+set easymotion
+set commentary
+set ideajoin
+set scrolloff=8
+set visualbell t_vb=
+set noerrorbells
+
+imap <C-j> <esc>
+
+inoremap <C-a> <c-o>^
+inoremap <C-e> <c-o>$<Right>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+
+nnoremap H ^
+vnoremap H ^
+nnoremap L $
+vnoremap L $
+nnoremap <tab> %
+vnoremap <tab> %
+
+nnoremap <C-n> :<C-u>action NextTab<CR>
+nnoremap <C-p> :<C-u>action PreviousTab<CR>
+
+nnoremap ss :<C-u>split<CR>
+nnoremap sv :<C-u>vsplit<CR>
+nnoremap sk <C-w>k
+nnoremap sj <C-w>j
+nnoremap sl :<C-u>action NextSplitter<CR>
+nnoremap sh :<C-u>action PrevSplitter<CR>
+nnoremap sq :<C-u>action CloseEditor<CR>
+
+nnoremap <Space><Space> :<C-u>action AceAction<CR>
+nnoremap <Space>s :<C-u>action KJumpAction<CR>
+nnoremap <Space>w :<C-u>action KJumpAction.Word0<CR>
+nnoremap <Space>l :<C-u>action KJumpAction.Line<CR>
+
+" nnoremap / :<C-u>action Find<CR>
+
+nnoremap g; :<C-u>action JumpToLastChange<CR>
+nnoremap g, :<C-u>action JumpToNextChange<CR>
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+
+nnoremap [m :<C-u>action MethodUp<CR>
+nnoremap ]m :<C-u>action MethodDown<CR>
+
+nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
+
+nnoremap [e :<C-u>action GotoPreviousError<CR>
+nnoremap ]e :<C-u>action GotoNextError<CR>
+
+nnoremap <Space>f :<C-u>action GotoFile<CR>
+nnoremap <Space>c :<C-u>action GotoClass<CR>
+nnoremap <Space>m :<C-u>action GotoSymbol<CR>
+
+nnoremap <C-h> :<C-u>action Back<CR>
+nnoremap <C-l> :<C-u>action Forward<CR>
+
+nnoremap <C-o>k :<C-u>action GotoDeclaration<CR>
+nnoremap <C-o>K :<C-u>action GotoTypeDeclaration<CR>
+nnoremap <C-o>i :<C-u>action GotoImplementation<CR>
+nnoremap <C-o>S :<C-u>action GotoSuperMethod<CR>
+nnoremap <C-o>t :<C-u>action GotoTest<CR>
+nnoremap <C-o>f :<C-u>action ShowUsages<CR>
+
+nnoremap <C-o><C-o> :<C-u>action GotoAction<CR>
+nnoremap <C-f> :<C-u>action FindInPath<CR>
+
+nnoremap <C-g>b :<C-u>action Annotate<CR>
