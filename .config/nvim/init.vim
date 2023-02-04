@@ -27,6 +27,7 @@ set encoding=utf-8
 set termguicolors
 set listchars=tab:\▸\-,extends:❯,precedes:❮ " 不可視文字の表示記号指定
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set winfixheight      " keep window height same
 set laststatus=3      " global status line
 set signcolumn=yes    " always display signcolumn for gitsigns.nvim
 " set cmdheight=0       " hide command line
