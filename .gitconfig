@@ -2,8 +2,8 @@
   path = ~/.gitconfig.local
 [core]
   editor = nvim
-  precomposeunicode = true
-  quotepath = false
+  precomposeUnicode = true
+  quotePath = false
   pager = delta
 [color]
   diff = auto
@@ -15,7 +15,7 @@
 [push]
   default = simple
 [url "git@github.com:"]
-  pushinsteadof = https://github.com/
+  pushInsteadOf = https://github.com/
 [commit]
   template = ~/.commit_template
 [delta]
