@@ -5,6 +5,7 @@ set ideajoin
 set scrolloff=8
 set visualbell t_vb=
 set noerrorbells
+set clipboard=unnamed
 
 imap <C-j> <esc>
 
