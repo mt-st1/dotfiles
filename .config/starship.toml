@@ -26,6 +26,7 @@ $shell\
 $character"""
 
 add_newline = true
+command_timeout = 5000 # in milliseconds
 
 [character]
 success_symbol = '[❯](bold #cccccc)[❯](bold cyan)[❯](bold #888888)'
@@ -42,6 +43,7 @@ truncation_symbol = '…/'
 style = 'green'
 
 [git_status]
+# disabled = true
 style = 'white'
 format = "$all_status$ahead_behind"
 conflicted = '⚔️  '
@@ -59,5 +61,17 @@ deleted = '🗑️ ×${count} '
 disabled = true
 
 [package]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[openstack]
+disabled = true
+
+[azure]
 disabled = true
 
