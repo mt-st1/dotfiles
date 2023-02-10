@@ -74,7 +74,7 @@ if [[ $(command -v exa) ]]; then
   alias lot=eot
   alias eos='exa -ahl -s size -r'     # ファイルサイズ順 (Order by Size)
   alias los=eos
-  alias et='exa -T -L3 -a -I "node_modules|.git|.cache" --icons'
+  alias et='exa -T -L4 -a -I "node_modules|.git|.cache" --icons'
   alias lt=et
   alias eta='exa -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
   alias lta=eta
@@ -168,19 +168,19 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
 fi
 
 ### fzf ###
-export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --inline-info"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info"
 export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden --follow --glob "!.git/*"'
 
 function fzf-select-history() {  # コマンド履歴を検索
-    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER")
+    BUFFER=$(history -n -r 1 | awk '!a[$0]++' | fzf --no-sort --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle reset-prompt
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
 
-function fzf-cdr () {  # cdrによるディレクトリ移動の履歴から検索しcd
-  local selected_dir="$(cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | fzf --query "$LBUFFER")"
+function fzf-cdr() {  # cdrによるディレクトリ移動の履歴から検索しcd
+  local selected_dir="$(cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | fzf --no-sort --query "$LBUFFER")"
   if [ -n "$selected_dir" ]; then
     eval "cd ${selected_dir}"
     zle clear-screen
@@ -188,10 +188,35 @@ function fzf-cdr () {  # cdrによるディレクトリ移動の履歴から検�
   zle reset-prompt
 }
 zle -N fzf-cdr
-bindkey '^j' fzf-cdr
+bindkey '^j^j' fzf-cdr
+
+function fzf-fd-cd() {  # カレントディレクトリ下(隠しディレクトリ除く)を探索しcd
+  local selected_dir="$(fd --type d -E node_modules -E debug -E Library | fzf --query "$LBUFFER")"
+  if [ -n "$selected_dir" ]; then
+    eval "cd ${selected_dir}"
+    zle clear-screen
+  fi
+  zle reset-prompt
+}
+zle -N fzf-fd-cd
+bindkey '^j^f' fzf-fd-cd
+
+function fzf-fd-hidden-cd() {  # カレントディレクトリ下(隠しディレクトリ含む)を探索しcd
+  local selected_dir="$(
+    fd --type d --hidden -E .git -E .cache -E node_modules -E debug -E Library --max-depth 8 \
+      | fzf --query "$LBUFFER" \
+  )"
+  if [ -n "$selected_dir" ]; then
+    eval "cd ${selected_dir}"
+    zle clear-screen
+  fi
+  zle reset-prompt
+}
+zle -N fzf-fd-hidden-cd
+bindkey '^j^a' fzf-fd-hidden-cd
 
 function fzf-any-search() {
-  local fdpath='fd . ~ --full-path --type d --exclude debug --exclude Library | sed -e "s/^/cd /"'
+  local fdpath='fd . ~ --full-path --type d -E debug -E Library | sed -e "s/^/cd /"'
   local history='history -n 1 | sort | uniq | grep -v "cd" | tail -r'
   local result=$({ eval "$fdpath" ; eval "$history" ; } | fzf --query "$LBUFFER")
   if [[ "$result" =~ ^cd ]]; then
