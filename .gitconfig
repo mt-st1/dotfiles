@@ -26,7 +26,7 @@
   line-numbers = true
   side-by-side = true
 [alias]
-  alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+  aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
   i = init
   r = remote -v
   a = add
@@ -35,9 +35,12 @@
   cm = commit
   cmm = commit -m
   can = commit --amend --no-edit
+  pushf = push --force-with-lease
   pom = push origin main
   pod = push origin develop
-  s = status
+  plr = pull --rebase
+  s = status -s
+  st = status
   sh = show
   d = diff
   dc = diff --cached
@@ -49,16 +52,24 @@
   d3 = diff HEAD~3
   b = branch
   bv = branch -vv
+  bva = branch -vva
   co = checkout
+  cob = checkout -b
   cp = cherry-pick
   sp = stash pop
   ss = stash save
+  ssu = stash save -u
   sl = stash list
   f = fetch
+  fp = fetch --prune
+  rb = rebase
+  rbi = rebase -i
   l = log --graph --pretty=format:'%C(yellow)%h%Creset %C(white bold)[%ad]%Creset %s %C(white dim)ー %an%Creset%C(auto)%d%Creset' --date=format-local:'%Y-%m-%d %H:%M'
   ll = log -p --stat --abbrev-commit --decorate --topo-order
+  la = log --oneline --decorate --graph --branches --tags --remotes --all
   list = log --pretty=format:\"<%h> %ad [%an] %C(green)%d%Creset %s\" --date=short
   loglr = log --left-right -p
   conflictlr = log --merge --left-right -p
   unstage = reset HEAD
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|main|master|develop|release|gh-pages'|xargs git branch -d; };f"
 
