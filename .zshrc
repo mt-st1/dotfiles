@@ -48,6 +48,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
+export BAT_THEME="OneHalfDark"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
 
