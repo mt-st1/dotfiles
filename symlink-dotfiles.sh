@@ -14,6 +14,7 @@ link-dotfiles() {
     .zshrc
     .zsh-prezto-completion.zsh
     .config/starship.toml
+    .confg/gh/config.yml
     .config/git/ignore
     .config/nvim/plugins
     .config/nvim/init.vim

@@ -274,6 +274,9 @@ function fzf-ps() {  # プロセスIDを取得 (tabで複数選択可)
 zle -N fzf-ps
 bindkey "^t^p" fzf-ps
 
+### GitHub CLI ###
+eval "$(gh completion -s zsh)"
+
 ### Starship ###
 eval "$(starship init zsh)"
 
