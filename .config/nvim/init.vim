@@ -129,6 +129,8 @@ cnoremap <C-d> <Del>
 
 if exists('g:vscode')
   " -- VSCode extension -- 
+  nmap j gj
+  nmap k gk
 else
   " -- ordinary Neovim --
   "============================
@@ -259,6 +261,25 @@ else
   endfunction
   autocmd VimEnter,BufWinEnter * call timer_start(0, { -> s:set_winbar() })
 endif
+
+" ==================================
+"  vim-plug setup for VSCode Neovim
+" ==================================
+call plug#begin('~/.config/nvim/plugged')
+  if exists('g:vscode')
+    " -- vim-easymotion
+    Plug 'asvetliakov/vim-easymotion'
+    source ~/.config/nvim/plugins/easymotion.rc.vim
+    nmap s <Plug>(easymotion-s2)
+    let g:EasyMotion_keys = ';HKLYIOPNM,QWERTASDGZXCVBJF'  " exclude 'U' for undo keybinding in VSCode
+    let g:EasyMotion_prompt = ""
+    " -- clever-f
+    Plug 'rhysd/clever-f.vim'
+    source ~/.config/nvim/plugins/clever-f.rc.vim
+    " -- vim-surround
+    Plug 'tpope/vim-surround'
+  endif
+call plug#end()
 
 filetype plugin indent on
 
