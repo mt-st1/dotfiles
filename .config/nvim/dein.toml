@@ -36,9 +36,9 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'numToStr/Comment.nvim'
 hook_add = '''
-  source ~/.config/nvim/plugins/tcomment.rc.vim
+  source ~/.config/nvim/plugins/comment.rc.vim
 '''
 
 [[plugins]]
