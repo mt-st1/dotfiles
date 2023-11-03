@@ -43,6 +43,7 @@ cask "visual-studio-code"
 cask "zoom"
 
 mas "Focus To-Do", id: 1258530160
-mas "GoodNotes 5", id: 1444383602
+mas "GoodNotes", id: 1444383602
 mas "LINE", id: 539883307
 mas "MenubarX", id: 1575588022
+mas "Spark", id: 1176895641
