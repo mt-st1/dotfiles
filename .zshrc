@@ -156,6 +156,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh-prezto-completion.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh-prezto-completion.zsh"
 fi
 
+### kubectl completion & alias ###
+source <(kubectl completion zsh)
+alias k=kubectl
+compdef __start_kubectl k
+
 ### asdf ###
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
