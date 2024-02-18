@@ -1,23 +1,34 @@
 [include]
   path = ~/.gitconfig.local
+
+[user]
+  signingkey = 4BF4CA68061F8FB8
+
 [core]
   editor = nvim
   precomposeUnicode = true
   quotePath = false
   pager = delta
+
 [color]
   diff = auto
   status = auto
   branch = auto
   ui = true
+
 [interactive]
   diffFilter = delta --color-only
+
 [push]
   default = simple
+
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
+
 [commit]
   template = ~/.commit_template
+  gpgsign = true
+
 [delta]
   plus-style = "syntax #012800"
   minus-style = "syntax #340001"
@@ -25,6 +36,7 @@
   navigate = true
   line-numbers = true
   side-by-side = true
+
 [alias]
   aliases = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
   i = init

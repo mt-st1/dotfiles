@@ -51,6 +51,7 @@ export VISUAL=nvim
 export BAT_THEME="OneHalfDark"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export GPG_TTY=$(tty)
 
 ### PATH ###
 export PATH="$PATH:$HOME/scripts/mybin"
