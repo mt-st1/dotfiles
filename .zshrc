@@ -51,6 +51,8 @@ export VISUAL=nvim
 export BAT_THEME="OneHalfDark"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export ES_JAVA_HOME=`/usr/libexec/java_home -v 17`
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GPG_TTY=$(tty)
 
 ### PATH ###
