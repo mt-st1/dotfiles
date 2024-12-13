@@ -8,13 +8,13 @@ link-dotfiles() {
   local files=(
     .Brewfile
     .commit_template
-    .gitconfig
     .ideavimrc
     .tmux.conf
     .zshrc
     .zsh-prezto-completion.zsh
     .config/starship.toml
     .confg/gh/config.yml
+    .config/git/config
     .config/git/ignore
     .config/nvim/plugins
     .config/nvim/init.vim

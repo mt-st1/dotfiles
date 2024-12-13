@@ -1,9 +1,3 @@
-[include]
-  path = ~/.gitconfig.local
-
-[user]
-  signingkey = 4BF4CA68061F8FB8
-
 [core]
   editor = nvim
   precomposeUnicode = true
@@ -21,13 +15,13 @@
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
 
 [commit]
   template = ~/.commit_template
-  gpgsign = true
 
 [delta]
   plus-style = "syntax #012800"
