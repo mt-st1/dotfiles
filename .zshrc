@@ -181,7 +181,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info"
 export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden --follow --glob "!.git/*"'
 
 function fzf-select-history() {  # コマンド履歴を検索
-    BUFFER=$(history -n -r 1 | awk '!a[$0]++' | fzf --no-sort --query "$LBUFFER")
+    BUFFER=$(history -n -r 1 | awk '!a[$0]++' | fzf --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -189,7 +189,7 @@ zle -N fzf-select-history
 bindkey '^r' fzf-select-history
 
 function fzf-cdr() {  # cdrによるディレクトリ移動の履歴から検索しcd
-  local selected_dir="$(cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | fzf --no-sort --query "$LBUFFER")"
+  local selected_dir="$(cdr -l | sed -e 's/^[[:digit:]]*[[:blank:]]*//' | fzf --query "$LBUFFER")"
   if [ -n "$selected_dir" ]; then
     eval "cd ${selected_dir}"
     zle clear-screen
