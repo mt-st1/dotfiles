@@ -61,6 +61,8 @@
   bva = branch -vva
   co = checkout
   cob = checkout -b
+  sw = switch
+  swc = switch -c
   cp = cherry-pick
   sp = stash pop
   ss = stash save
