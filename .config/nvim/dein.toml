@@ -103,3 +103,7 @@ hook_add = '''
   source ~/.config/nvim/plugins/nvim-tree.rc.vim
 '''
 
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+build = ':TSUpdate'
+
