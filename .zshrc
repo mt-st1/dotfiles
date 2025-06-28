@@ -65,22 +65,22 @@ export PATH="$JAVA_HOME/bin:$PATH" # Java
 alias vim='nvim'
 alias oldvim="\vim"
 
-if [[ $(command -v exa) ]]; then
-  alias e='exa'
+if [[ $(command -v eza) ]]; then
+  alias e='eza'
   alias ls=e
-  alias ea='exa -a'
+  alias ea='eza -a'
   alias l=ea
-  alias el='exa -l --icons --git'
+  alias el='eza -l --icons --git'
   alias ll=el
-  alias ee='exa -ahl --icons --git'
+  alias ee='eza -ahl --icons --git'
   alias la=ee
-  alias eot='exa -ahl -s modified -r' # 更新時間順 (Order by Time)
+  alias eot='eza -ahl -s modified -r' # 更新時間順 (Order by Time)
   alias lot=eot
-  alias eos='exa -ahl -s size -r'     # ファイルサイズ順 (Order by Size)
+  alias eos='eza -ahl -s size -r'     # ファイルサイズ順 (Order by Size)
   alias los=eos
-  alias et='exa -T -L4 -a -I "node_modules|.git|.cache" --icons'
+  alias et='eza -T -L4 -a -I "node_modules|.git|.cache" --icons'
   alias lt=et
-  alias eta='exa -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
+  alias eta='eza -T -a -I "node_modules|.git|.cache" --color=always --icons | less -r'
   alias lta=eta
 fi
 
