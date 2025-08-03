@@ -315,3 +315,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 ### Kiro ###
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+### uv ###
+if [[ -s "$HOME/.local/bin/env" ]]; then
+  . "$HOME/.local/bin/env"
+fi
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
