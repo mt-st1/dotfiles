@@ -21,6 +21,7 @@ link-dotfiles() {
     .config/nvim/dein.toml
     .config/nvim/dein_lazy.toml
     .config/karabiner/karabiner.json
+    .hammerspoon/init.lua
   )
 
   for file in ${files[@]}; do
