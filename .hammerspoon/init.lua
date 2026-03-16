@@ -1,4 +1,4 @@
-hs.hotkey.bind({"ctrl"}, "space", function()
+hs.hotkey.bind({"ctrl"}, "\\", function()
     local app = hs.application.find("cmux")
     if app then
         if app:isFrontmost() then
