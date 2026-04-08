@@ -1,4 +1,4 @@
-hs.hotkey.bind({"ctrl"}, "\\", function()
+hs.hotkey.bind({"ctrl"}, "i", function()
     local app = hs.application.find("cmux")
     if app then
         if app:isFrontmost() then
