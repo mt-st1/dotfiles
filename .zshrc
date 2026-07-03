@@ -224,22 +224,6 @@ function fzf-fd-hidden-cd() {  # カレントディレクトリ下(隠しディ�
 zle -N fzf-fd-hidden-cd
 bindkey '^j^a' fzf-fd-hidden-cd
 
-function fzf-any-search() {
-  local fdpath='fd . ~ --full-path --type d -E debug -E Library | sed -e "s/^/cd /"'
-  local history='history -n 1 | sort | uniq | grep -v "cd" | tail -r'
-  local result=$({ eval "$fdpath" ; eval "$history" ; } | fzf --query "$LBUFFER")
-  if [[ "$result" =~ ^cd ]]; then
-    eval "$result"
-    zle clear-screen
-  else
-    BUFFER="$result"
-    CURSOR=$#BUFFER
-    zle clear-screen
-  fi
-}
-zle -N fzf-any-search
-bindkey '^\' fzf-any-search
-
 function fzf-ghq() {  # `ghq list`でcloneしたリポジトリ検索しcd
   local root="$(ghq root)"
   local repo="$(ghq list | fzf --preview="ls -AF --color=always ${root}/{1}")"
