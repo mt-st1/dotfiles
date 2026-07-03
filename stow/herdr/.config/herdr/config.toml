@@ -9,19 +9,17 @@
 onboarding = false
 
 [theme]
-# Keep Herdr close to the terminal/tmux color palette instead of using a
-# strongly opinionated built-in theme.
-name = "terminal"
+# Use a polished dark UI with enough contrast for long-running agent sessions.
+name = "gruvbox"
 
 [theme.custom]
-# tmux used colour234 as the status background and warm accent colors for the
-# active window/pane. These values are approximate xterm-256 color matches.
-panel_bg = "#1c1c1c"
-accent = "#af5f00"
-green = "#87af00"
-blue = "#005f87"
-yellow = "#d78700"
-red = "#d75f5f"
+# Muted, high-contrast accents inspired by Kanagawa's ink and autumn palette.
+panel_bg = "reset"
+accent = "#dca561"
+green = "#98bb6c"
+blue = "#7e9cd8"
+yellow = "#e6c384"
+red = "#e46876"
 
 [terminal]
 # tmux used $SHELL for default-shell/default-command. Leaving this empty lets
@@ -104,25 +102,25 @@ remote_image_paste = ""
 mouse_capture = true
 mouse_scroll_lines = 3
 
-# tmux has compact pane borders without visual gaps.
+# Give split panes a little breathing room so the layout reads cleaner.
 pane_borders = true
-pane_gaps = false
+pane_gaps = true
 
 confirm_close = true
 prompt_new_tab_name = false
 redraw_on_focus_gained = true
 
-sidebar_width = 32
+sidebar_width = 34
 sidebar_min_width = 18
-sidebar_max_width = 40
+sidebar_max_width = 42
 mobile_width_threshold = 64
 
-show_agent_labels_on_pane_borders = false
-agent_panel_sort = "spaces"
-accent = "#af5f00"
+show_agent_labels_on_pane_borders = true
+agent_panel_sort = "priority"
+accent = "#dca561"
 
 [ui.toast]
-delivery = "off"
+delivery = "herdr"
 delay_seconds = 1
 
 [ui.toast.herdr]
