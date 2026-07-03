@@ -288,9 +288,6 @@ eval "$(gh completion -s zsh)"
 ### Starship ###
 eval "$(starship init zsh)"
 
-### nodenv ###
-eval "$(nodenv init -)"
-
 ### direnv ###
 eval "$(direnv hook zsh)"
 
