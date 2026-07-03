@@ -1,0 +1,158 @@
+# herdr configuration
+# Managed by GNU Stow from this repository.
+#
+# This ports the tmux preferences from stow/tmux/.tmux.conf where Herdr has
+# equivalent configuration. Some tmux-specific features, such as status-line
+# format strings, TPM plugins, terminal-overrides, and detailed copy-mode key
+# tables, do not have direct Herdr equivalents.
+
+onboarding = false
+
+[theme]
+# Keep Herdr close to the terminal/tmux color palette instead of using a
+# strongly opinionated built-in theme.
+name = "terminal"
+
+[theme.custom]
+# tmux used colour234 as the status background and warm accent colors for the
+# active window/pane. These values are approximate xterm-256 color matches.
+panel_bg = "#1c1c1c"
+accent = "#af5f00"
+green = "#87af00"
+blue = "#005f87"
+yellow = "#d78700"
+red = "#d75f5f"
+
+[terminal]
+# tmux used $SHELL for default-shell/default-command. Leaving this empty lets
+# Herdr use $SHELL, then /bin/sh.
+default_shell = ""
+
+# On macOS this starts login shells, preserving PATH setup from path_helper and
+# Homebrew initialization.
+shell_mode = "auto"
+
+# Match tmux's practical behavior: new panes/tabs start from the current pane or
+# workspace directory when possible.
+new_cwd = "follow"
+
+[update]
+channel = "stable"
+version_check = true
+manifest_check = true
+
+[keys]
+# tmux prefix was changed from C-b to C-k.
+prefix = "ctrl+k"
+
+# tmux: prefix+r reloads the config.
+reload_config = "prefix+r"
+
+# tmux-style detach and common navigation.
+detach = "prefix+d"
+workspace_picker = "prefix+w"
+goto = "prefix+g"
+
+# tmux windows are closest to Herdr tabs. Keep tab numbers 1..9.
+new_tab = "prefix+c"
+rename_tab = "prefix+shift+t"
+previous_tab = "prefix+ctrl+h"
+next_tab = "prefix+ctrl+l"
+switch_tab = "prefix+1..9"
+close_tab = "prefix+shift+x"
+
+# Vim-like pane focus, matching prefix+h/j/k/l in tmux.
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# tmux used direct C-o to cycle panes.
+cycle_pane_next = ["prefix+tab", "ctrl+o"]
+cycle_pane_previous = "prefix+shift+tab"
+
+# tmux used prefix+v for copy-mode. Herdr's copy mode already uses vi-like
+# h/j/k/l, w/b/e, v, y, Enter, q, and Esc internally.
+copy_mode = "prefix+v"
+
+# tmux used prefix+- for split down. Herdr's documented split-right default is
+# prefix+v, but that conflicts with the tmux copy-mode binding above.
+split_horizontal = "prefix+minus"
+split_vertical = "prefix+shift+v"
+
+close_pane = "prefix+x"
+zoom = "prefix+z"
+
+# Herdr exposes resize as a mode rather than direct prefix+H/J/K/L bindings.
+resize_mode = "prefix+shift+r"
+
+toggle_sidebar = "prefix+b"
+
+# Navigate-mode keeps plain vim keys, mirroring tmux pane movement habits.
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+navigate_workspace_up = "up"
+navigate_workspace_down = "down"
+
+# Avoid stealing Ctrl-v in remote sessions; tmux only used C-v inside copy mode.
+remote_image_paste = ""
+
+[ui]
+# tmux had mouse support enabled.
+mouse_capture = true
+mouse_scroll_lines = 3
+
+# tmux has compact pane borders without visual gaps.
+pane_borders = true
+pane_gaps = false
+
+confirm_close = true
+prompt_new_tab_name = false
+redraw_on_focus_gained = true
+
+sidebar_width = 32
+sidebar_min_width = 18
+sidebar_max_width = 40
+mobile_width_threshold = 64
+
+show_agent_labels_on_pane_borders = false
+agent_panel_sort = "spaces"
+accent = "#af5f00"
+
+[ui.toast]
+delivery = "off"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[ui.toast.clipboard]
+enabled = true
+position = "bottom-center"
+
+[ui.sound]
+enabled = true
+
+[session]
+resume_agents_on_restore = true
+
+[remote]
+manage_ssh_config = true
+
+[experimental]
+allow_nested = false
+kitty_graphics = false
+pane_history = false
+
+# Helpful on macOS when using Japanese input methods with agent TUIs.
+switch_ascii_input_source_in_prefix = true
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude", "codex", "opencode", "cursor", "kimi", "droid", "amp"]
+cjk_ime_cursor_shape = "steady_block"
+
+[advanced]
+# tmux used history-limit 100000 lines. Herdr config is byte-based, so this is
+# a deliberately larger approximation for long-running panes.
+scrollback_limit_bytes = 100000000
