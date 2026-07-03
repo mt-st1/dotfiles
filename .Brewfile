@@ -24,6 +24,7 @@ brew "pinentry-mac"
 brew "pre-commit"
 brew "ripgrep"
 brew "starship"
+brew "stow"
 brew "tmux"
 brew "zsh-syntax-highlighting"
 
