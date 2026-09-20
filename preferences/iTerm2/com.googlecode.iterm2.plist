@@ -26,6 +26,8 @@
 	<integer>128000</integer>
 	<key>AitermURL</key>
 	<string>https://api.openai.com/v1/responses</string>
+	<key>ClaudeCodeWorkgroupUpsellSuppressed</key>
+	<true/>
 	<key>CompactMinimalTabBarHeight</key>
 	<real>22</real>
 	<key>Default Bookmark Guid</key>

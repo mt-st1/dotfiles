@@ -303,3 +303,4 @@ if [[ -s "$HOME/.local/bin/env" ]]; then
 fi
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+export PATH=$PATH:$HOME/.maestro/bin
